@@ -40,7 +40,8 @@
 						</button>
 						<button class="px-2 py-1 -mx-3 -my-1 text-xs tracking-wider
 							flex items-center select-none
-							text-red-500 rounded-lg hover:bg-red-100 focus:outline-none focus:bg-red-100">
+							text-red-500 rounded-lg hover:bg-red-100 focus:outline-none focus:bg-red-100"
+							@click="deleteLocation(location)">
 							<icon type="delete" class="mr-2"/>
 							DELETE
 						</button>
@@ -79,6 +80,11 @@ export default {
 	computed: {
 		_colorClass() {
 			return Colors[this.location.color]
+		}
+	},
+	methods: {
+		deleteLocation(location) {
+			this.$store.dispatch('deleteLocation', location)
 		}
 	}
 }
