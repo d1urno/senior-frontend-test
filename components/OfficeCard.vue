@@ -90,7 +90,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .fade-enter,
 .fade-leave-to {
 	@apply transform opacity-0
