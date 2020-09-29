@@ -18,7 +18,7 @@ export default {
 	/*
 	 * Plugins to load before mounting the App
 	 */
-	plugins: [],
+	plugins: ['plugins/vue-smooth-reflow.client'],
 
 	/*
 	 * Nuxt.js dev-modules
