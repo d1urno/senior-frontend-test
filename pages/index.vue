@@ -13,11 +13,11 @@
 				<icon type="add"/>
 			</button>
 
-			<ul class="w-full mb-8 space-y-6">
+			<transition-group name="zoom-fade" tag="ul" class="w-full mb-8 space-y-6">
 				<li v-for="location in _locations" :key="location.id" class="w-full max-w-md mx-auto">
 					<office-card :location="location"/>
 				</li>
-			</ul>
+			</transition-group>
 		</section>
 
 		<footer class="container px-6 pb-16 mx-auto text-center">
@@ -46,3 +46,20 @@ export default {
 	}
 }
 </script>
+
+<style>
+.zoom-fade-enter,
+.zoom-fade-leave-to {
+	@apply transform scale-90 opacity-0
+}
+
+.zoom-fade-leave-active {
+	@apply transition duration-500;
+	transition-timing-function: cubic-bezier(0.35, 0.46, 0.17, 1.3)
+}
+
+.zoom-fade-enter-active {
+	@apply transition duration-500;
+	transition-timing-function: cubic-bezier(0.35, 0.46, 0.17, 1.3)
+}
+</style>
