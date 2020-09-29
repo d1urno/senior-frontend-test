@@ -2,10 +2,15 @@
 	<div class="relative overflow-y-hidden bg-white rounded-lg shadow-lg">
 		<header class="relative z-10">
 			<button @click="isOpen = !isOpen" :class="_colorClass" class="h-48 p-8 w-full
-				flex flex-col justify-center text-white rounded-lg shadow-lg
+				flex justify-between items-center text-white rounded-lg shadow-lg
 				focus:outline-none">
-				<span class="block text-3xl font-semibold">{{ location.name }}</span>
-				<span>{{ location.address }}</span>
+				<span class="text-left">
+					<span class="block text-3xl font-semibold">{{ location.name }}</span>
+					<span class="">{{ location.address }}</span>
+				</span>
+				<icon type="chevron"
+					  class="transition-transform transform duration-500"
+					  :class="{ 'rotate-180': isOpen }"/>
 			</button>
 		</header>
 
