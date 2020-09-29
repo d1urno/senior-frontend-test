@@ -6,9 +6,11 @@
 			</h1>
 
 			<button class="block w-full max-w-md px-8 py-5 my-6
+				flex justify-between items-center
 				text-left text-white bg-red-500 rounded-lg shadow-lg
 				focus:outline-none">
-				Add New location
+				<span>Add New location</span>
+				<icon type="add"/>
 			</button>
 
 			<ul class="w-full mb-8 space-y-6">
@@ -33,9 +35,10 @@
 
 <script>
 import OfficeCard from '@/components/OfficeCard'
+import Icon from '@/components/Icon'
 
 export default {
-	components: {OfficeCard},
+	components: {Icon, OfficeCard},
 	computed: {
 		_locations() {
 			return this.$store.getters.locations
