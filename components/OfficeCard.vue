@@ -10,7 +10,7 @@
 		</header>
 
 		<smooth-reflow>
-			<transition name="slide-top">
+			<transition name="fade">
 				<div v-if="isOpen" class="px-12">
 					<section class="pt-8 pb-4 -mt-2 space-y-3">
 						<h3 class="block text-3xl font-semibold text-gray-800">
@@ -73,16 +73,16 @@ export default {
 </script>
 
 <style>
-.slide-top-enter,
-.slide-top-leave-to {
+.fade-enter,
+.fade-leave-to {
 	@apply transform opacity-0
 }
 
-.slide-top-leave-active {
+.fade-leave-active {
 	@apply transition duration-500 absolute inset-x-0
 }
 
-.slide-top-enter-active {
+.fade-enter-active {
 	@apply transition duration-500
 }
 </style>
