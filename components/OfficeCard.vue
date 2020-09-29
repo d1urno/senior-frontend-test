@@ -1,5 +1,5 @@
 <template>
-	<div class="relative overflow-y-hidden bg-white rounded-b-lg shadow-lg">
+	<div class="relative overflow-y-hidden bg-white rounded-lg shadow-lg">
 		<header class="relative z-10">
 			<button @click="isOpen = !isOpen" :class="_colorClass" class="h-48 p-8 w-full
 				flex flex-col justify-center text-white rounded-lg shadow-lg
