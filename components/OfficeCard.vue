@@ -27,12 +27,16 @@
 					<span class="block w-full h-1 border-t border-gray-300"/>
 
 					<footer class="flex justify-between px-1 pt-4 pb-6">
-						<button class="px-2 py-1 -mx-2 -my-1 text-xs text-gray-500 rounded-lg hover:bg-gray-100
-							focus:outline-none focus:bg-gray-100 tracking-wider">
+						<button class="px-2 py-1 -mx-3 -my-1 text-xs tracking-wider
+							flex items-center select-none
+							text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+							<icon type="edit" class="mr-2"/>
 							EDIT
 						</button>
-						<button class="px-2 py-1 -mx-2 -my-1 text-xs text-red-500 rounded-lg hover:bg-red-100
-							focus:outline-none focus:bg-red-100 tracking-wider">
+						<button class="px-2 py-1 -mx-3 -my-1 text-xs tracking-wider
+							flex items-center select-none
+							text-red-500 rounded-lg hover:bg-red-100 focus:outline-none focus:bg-red-100">
+							<icon type="delete" class="mr-2"/>
 							DELETE
 						</button>
 					</footer>
@@ -43,6 +47,8 @@
 </template>
 
 <script>
+import Icon from '@/components/Icon'
+
 const Colors = {
 	teal: 'bg-teal-500',
 	orange: 'bg-orange-500',
@@ -53,6 +59,7 @@ const Colors = {
 
 export default {
 	name: 'OfficeCard',
+	components: {Icon},
 	props: {
 		location: {
 			type: Object,
