@@ -5,7 +5,7 @@
 				flex justify-between items-center text-white rounded-lg shadow-lg
 				focus:outline-none">
 				<span class="text-left">
-					<span class="block text-3xl font-semibold">{{ location.name }}</span>
+					<span class="block text-3xl font-semibold">{{ location.title }}</span>
 					<span class="">{{ location.address }}</span>
 				</span>
 				<icon type="chevron"
@@ -21,7 +21,7 @@
 						<h3 class="block text-3xl font-semibold text-gray-800">
 							{{ location.contact.name }}
 						</h3>
-						<p>{{ location.contact.title }}</p>
+						<p>{{ location.contact.job }}</p>
 						<a :href="`mailto:${location.contact.email}`"
 						   class="inline-block text-teal-500 focus:outline-none focus:underline">
 							{{ location.contact.email }}
