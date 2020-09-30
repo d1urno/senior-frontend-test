@@ -8,6 +8,7 @@
 				{{ message }}
 			</span>
 		</transition>
+		<!-- End: Message modal -->
 
 		<section class="container flex flex-col items-center px-6 pt-24 mx-auto">
 			<h1 class="mb-6 text-6xl font-light tracking-wide text-teal-500">
@@ -15,6 +16,7 @@
 			</h1>
 
 			<smooth-reflow class="relative w-full max-w-md">
+				<!-- Add location button -->
 				<transition name="fade">
 					<button v-if="!isFormAddOpen"
 							class="w-full px-8 py-5 my-6
@@ -26,19 +28,24 @@
 						<icon type="add"/>
 					</button>
 				</transition>
+				<!-- End: Add location button -->
 
+				<!-- Add location form -->
 				<transition name="slide-top">
 					<office-form-add v-if="isFormAddOpen"
 									 class="my-6"
 									 @exit="handleFormExit"/>
 				</transition>
+				<!-- End: Add location form -->
 			</smooth-reflow>
 
+			<!-- Location list -->
 			<transition-group name="zoom-fade" tag="ul" class="relative w-full">
 				<li v-for="location in _locations" :key="location.id" class="w-full max-w-md mx-auto mb-6">
 					<office-card :location="location"/>
 				</li>
 			</transition-group>
+			<!-- End: Location list -->
 		</section>
 
 		<footer class="container px-6 pb-16 mx-auto text-center">

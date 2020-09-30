@@ -1,5 +1,6 @@
 <template>
 	<section>
+		<!-- Selected color -->
 		<button
 			type="button"
 			:class="_colorClass"
@@ -13,7 +14,9 @@
 				  class="w-4 h-4 mt-1 ml-3 transition-transform duration-500 transform"
 				  :class="{ 'rotate-180': isOpen }"/>
 		</button>
+		<!-- End: Selected color -->
 
+		<!-- Available color list -->
 		<smooth-reflow class="relative">
 			<transition name="fade">
 				<div v-if="isOpen" class="mt-6 space-y-6">
@@ -28,6 +31,7 @@
 				</div>
 			</transition>
 		</smooth-reflow>
+		<!-- End: Available color list -->
 	</section>
 </template>
 

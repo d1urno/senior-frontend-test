@@ -3,11 +3,15 @@
 		{{ title }}
 		<span class="text-gray-500">*</span>
 		<span class="relative block">
+			<!-- Error icon -->
 			<transition name="zoom-fade">
 				<icon v-show="error"
 					  type="error"
 					  class="absolute top-0 right-0 m-2 mt-3 text-red-500"/>
 			</transition>
+			<!-- End: Error icon -->
+
+			<!-- User input -->
 			<input :ref="reference"
 				   v-model="_value"
 				   :type="type"
@@ -17,7 +21,10 @@
 				   border border-gray-500 rounded-md shadow
 				   focus:outline-none focus:border-teal-500 c-scroll-container"
 				   :class="{ 'border-red-500': error, 'border-gray-800': _value }"/>
+			<!-- End: User input -->
 		</span>
+
+		<!-- Error message -->
 		<smooth-reflow :options="$options.options">
 			<transition name="zoom-fade">
 				<p v-show="error" class="inline-block mt-1 text-xs text-red-600">
@@ -25,6 +32,7 @@
 				</p>
 			</transition>
 		</smooth-reflow>
+		<!-- End: Error message -->
 	</label>
 </template>
 

@@ -7,6 +7,7 @@
 			</button>
 		</header>
 
+		<!-- Color picker row -->
 		<office-form-color class="mb-6" v-model="location.color"/>
 
 		<section>
