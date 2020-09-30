@@ -19,9 +19,9 @@
 				</transition>
 
 				<transition name="slide-top">
-					<OfficeFormAdd v-if="isFormAddOpen"
-								   class="my-6"
-								   @exit="handleFormExit"/>
+					<office-form-add v-if="isFormAddOpen"
+									 class="my-6"
+									 @exit="handleFormExit"/>
 				</transition>
 			</smooth-reflow>
 
