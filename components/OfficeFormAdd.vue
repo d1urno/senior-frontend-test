@@ -11,187 +11,50 @@
 
 		<section>
 			<!-- Title row -->
-			<label class="block w-full mb-6">
-				Title
-				<span class="text-gray-500">*</span>
-				<span class="relative block">
-					<transition name="zoom-fade">
-						<icon v-show="errors.title"
-							  type="error"
-							  class="absolute top-0 right-0 m-2 mt-3 text-red-500"/>
-					</transition>
-					<input ref="title"
-						   v-model="location.title"
-						   type="text"
-						   class="w-full px-4 py-2 mt-1
-						   border border-gray-500 rounded-md shadow
-						   focus:outline-none focus:border-teal-500 c-scroll-container"
-						   :class="{ 'border-red-500': errors.title }"
-						   @input="errors.title = ''"/>
-				</span>
-				<smooth-reflow :options="$options.options">
-					<transition name="zoom-fade">
-						<p v-show="errors.title" class="inline-block mt-1 text-xs text-red-600">
-							{{ errors.title }}
-						</p>
-					</transition>
-				</smooth-reflow>
-			</label>
-			<!-- End: Title row -->
+			<office-form-input ref="title" :reference="'title'" title="Title"
+							   v-model="location.title"
+							   :error="errors.title"
+							   @reset-error="errors.title = ''"/>
 
 			<!-- Address row -->
-			<label class="block w-full mb-6">
-				Enter the address
-				<span class="text-gray-500">*</span>
-				<span class="relative block">
-					<transition name="zoom-fade">
-						<icon v-show="errors.address"
-							  type="error"
-							  class="absolute top-0 right-0 m-2 mt-3 text-red-500"/>
-					</transition>
-					<input ref="address"
-						   v-model="location.address"
-						   type="text"
-						   class="w-full px-4 py-2 mt-1
-						   border border-gray-500 rounded-md shadow
-						   focus:outline-none focus:border-teal-500 c-scroll-container"
-						   :class="{ 'border-red-500': errors.address }"
-						   @input="errors.address = ''"/>
-				</span>
-				<smooth-reflow :options="$options.options">
-					<transition name="zoom-fade">
-						<p v-show="errors.address" class="inline-block mt-1 text-xs text-red-600">
-							{{ errors.address }}
-						</p>
-					</transition>
-				</smooth-reflow>
-			</label>
-			<!-- End: Address row -->
+			<office-form-input ref="address" :reference="'address'" title="Enter the address"
+							   v-model="location.address"
+							   :error="errors.address"
+							   @reset-error="errors.address = ''"/>
 		</section>
 
 		<span class="inline-block mb-3 text-xs font-semibold tracking-wide text-teal-500">CONTACT INFORMATION</span>
 		<span class="block w-full h-1 mb-4 border-t border-gray-300"/>
 
-		<!-- Contact name row -->
 		<section>
-			<label class="block w-full mb-6">
-				Full name
-				<span class="text-gray-500">*</span>
-				<span class="relative block">
-					<transition name="zoom-fade">
-						<icon v-show="errors.contactName"
-							  type="error"
-							  class="absolute top-0 right-0 m-2 mt-3 text-red-500"/>
-					</transition>
-					<input ref="contactName"
-						   v-model="location.contact.name"
-						   type="text"
-						   class="w-full px-4 py-2 mt-1
-						   border border-gray-500 rounded-md shadow
-						   focus:outline-none focus:border-teal-500 c-scroll-container"
-						   :class="{ 'border-red-500': errors.contactName }"
-						   @input="errors.contactName = ''"/>
-				</span>
-				<smooth-reflow :options="$options.options">
-					<transition name="zoom-fade">
-						<p v-show="errors.contactName" class="inline-block mt-1 text-xs text-red-600">
-							{{ errors.contactName }}
-						</p>
-					</transition>
-				</smooth-reflow>
-			</label>
-			<!-- End: Contact name row -->
+			<!-- Contact name row -->
+			<office-form-input ref="contactName" :reference="'contactName'" title="Full name"
+							   v-model="location.contact.name"
+							   :error="errors.contactName"
+							   @reset-error="errors.contactName = ''"/>
 
 			<!-- Contact job row -->
-			<label class="block w-full mb-6">
-				Job Position
-				<span class="text-gray-500">*</span>
-				<span class="relative block">
-					<transition name="zoom-fade">
-						<icon v-show="errors.contactJob"
-							  type="error"
-							  class="absolute top-0 right-0 m-2 mt-3 text-red-500"/>
-					</transition>
-					<input ref="contactJob"
-						   v-model="location.contact.job"
-						   type="text"
-						   class="w-full px-4 py-2 mt-1
-						   border border-gray-500 rounded-md shadow
-						   focus:outline-none focus:border-teal-500 c-scroll-container"
-						   :class="{ 'border-red-500': errors.contactJob }"
-						   @input="errors.contactJob = ''"/>
-				</span>
-				<smooth-reflow :options="$options.options">
-					<transition name="zoom-fade">
-						<p v-show="errors.contactJob" class="inline-block mt-1 text-xs text-red-600">
-							{{ errors.contactJob }}
-						</p>
-					</transition>
-				</smooth-reflow>
-			</label>
-			<!-- End: Contact job row -->
+			<office-form-input ref="contactJob" :reference="'contactJob'" title="Job Position"
+							   v-model="location.contact.job"
+							   :error="errors.contactJob"
+							   @reset-error="errors.contactJob = ''"/>
 
 			<!-- Contact email row -->
-			<label class="block w-full mb-6">
-				Email address
-				<span class="text-gray-500">*</span>
-				<span class="relative block">
-					<transition name="zoom-fade">
-						<icon v-show="errors.contactEmail"
-							  type="error"
-							  class="absolute top-0 right-0 m-2 mt-3 text-red-500"/>
-					</transition>
-					<input ref="contactEmail"
-						   v-model="location.contact.email"
-						   type="email"
-						   inputmode="email"
-						   placeholder="name@example.com"
-						   class="w-full px-4 py-2 mt-1
-						   border border-gray-500 rounded-md shadow
-						   focus:outline-none focus:border-teal-500 c-scroll-container"
-						   :class="{ 'border-red-500': errors.contactEmail }"
-						   @input="errors.contactEmail = ''"/>
-				</span>
-				<smooth-reflow :options="$options.options">
-					<transition name="zoom-fade">
-						<p v-show="errors.contactEmail" class="inline-block mt-1 text-xs text-red-600">
-							{{ errors.contactEmail }}
-						</p>
-					</transition>
-				</smooth-reflow>
-			</label>
-			<!-- End: Contact email row -->
+			<office-form-input ref="contactEmail" :reference="'contactEmail'" title="Email address"
+							   type="email"
+							   input-mode="email"
+							   placeholder="name@example.com"
+							   v-model="location.contact.email"
+							   :error="errors.contactEmail"
+							   @reset-error="errors.contactEmail = ''"/>
 
 			<!-- Contact phone row -->
-			<label class="block w-full mb-6">
-				Phone
-				<span class="text-gray-500">*</span>
-				<span class="relative block">
-					<transition name="zoom-fade">
-						<icon v-show="errors.contactPhone"
-							  type="error"
-							  class="absolute top-0 right-0 m-2 mt-3 text-red-500"/>
-					</transition>
-					<input ref="contactPhone"
-						   v-model="location.contact.phone"
-						   type="text"
-						   placeholder="(xxx) xxx-xxxx"
-						   class="w-full px-4 py-2 mt-1
-						   border border-gray-500 rounded-md shadow
-						   focus:outline-none focus:border-teal-500 c-scroll-container"
-						   :class="{ 'border-red-500': errors.contactPhone }"
-						   @input="errors.contactPhone = ''"/>
-				</span>
-				<smooth-reflow :options="$options.options">
-					<transition name="zoom-fade">
-						<p v-show="errors.contactPhone" class="inline-block mt-1 text-xs text-red-600">
-							{{ errors.contactPhone }}
-						</p>
-					</transition>
-				</smooth-reflow>
-			</label>
+			<office-form-input ref="contactPhone" :reference="'contactPhone'" title="Phone"
+							   placeholder="(xxx) xxx-xxxx"
+							   v-model="location.contact.phone"
+							   :error="errors.contactPhone"
+							   @reset-error="errors.contactPhone = ''"/>
 		</section>
-		<!-- End: Contact phone row -->
 
 		<footer>
 			<button type="submit"
@@ -208,10 +71,11 @@
 <script>
 import Icon from '@/components/Icon'
 import OfficeFormColor from '@/components/OfficeFormColor'
+import OfficeFormInput from '@/components/OfficeFormInput'
 
 export default {
 	name: 'OfficeFormAdd',
-	components: {OfficeFormColor, Icon},
+	components: {OfficeFormInput, OfficeFormColor, Icon},
 	data() {
 		return {
 			location: {
@@ -339,7 +203,7 @@ export default {
 					const elementId = Object.keys(errors)[
 						Object.values(errors).findIndex((value) => value.length > 0)
 						]
-					const element = this.$refs[elementId]
+					const element = this.$refs[elementId].$refs[elementId]
 					element.focus({preventScroll: true})
 					element.scrollIntoView({behavior: 'smooth'})
 
@@ -352,38 +216,7 @@ export default {
 				return false
 			}
 			return true
-		},
-
-		handleColorSelect(color) {
-			this.location.color = color
 		}
-	},
-	// Height transition feature
-	options: {
-		hideOverflow: false,
-		transition: 'height .25s ease-out'
 	}
 }
 </script>
-
-<style scoped>
-.c-scroll-container {
-	scroll-margin: 9rem;
-	scroll-padding: 9rem;
-}
-
-.zoom-fade-enter,
-.zoom-fade-leave-to {
-	@apply transform scale-90 opacity-0
-}
-
-.zoom-fade-leave-active {
-	@apply absolute transition duration-500;
-	transition-timing-function: cubic-bezier(0.35, 0.46, 0.17, 1.3)
-}
-
-.zoom-fade-enter-active {
-	@apply transition duration-500;
-	transition-timing-function: cubic-bezier(0.35, 0.46, 0.17, 1.3)
-}
-</style>
