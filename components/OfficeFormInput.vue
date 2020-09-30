@@ -16,7 +16,7 @@
 				   class="w-full px-4 py-2 mt-1
 				   border border-gray-500 rounded-md shadow
 				   focus:outline-none focus:border-teal-500 c-scroll-container"
-				   :class="{ 'border-red-500': error }"/>
+				   :class="{ 'border-red-500': error, 'border-gray-800': _value }"/>
 		</span>
 		<smooth-reflow :options="$options.options">
 			<transition name="zoom-fade">
