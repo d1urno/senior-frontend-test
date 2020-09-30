@@ -195,8 +195,8 @@
 
 		<footer>
 			<button type="submit"
-					class="relative p-2 px-6 flex items-center rounded-md text-white
-					transition transform duration-300 ease-out active:scale-100
+					class="relative p-2 px-6 flex items-center
+					rounded-md text-white transition duration-300
 					focus:outline-none focus:shadow-outline select-none"
 					:class="{ 'bg-teal-500': _validated, 'bg-gray-400': !_validated }">
 				Save
