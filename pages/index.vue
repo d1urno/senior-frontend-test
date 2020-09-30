@@ -1,6 +1,15 @@
 <template>
-	<div class="min-h-screen bg-gray-100 overflow-y-hidden">
-		<section class="container flex flex-col items-center px-6 pt-16 mx-auto">
+	<div class="min-h-screen overflow-y-hidden bg-gray-200">
+		<!-- Message modal -->
+		<transition name="slide-bottom">
+			<span v-if="message" class="fixed z-50 inset-0 h-20 flex items-center justify-center text-sm
+								 bg-white border-t-4 border-teal-500 shadow-lg text-gray-800">
+				<icon type="check" class="mr-3 text-teal-500"/>
+				{{ message }}
+			</span>
+		</transition>
+
+		<section class="container flex flex-col items-center px-6 pt-24 mx-auto">
 			<h1 class="mb-6 text-6xl font-light tracking-wide text-teal-500">
 				Offices
 			</h1>
@@ -54,7 +63,8 @@ export default {
 	components: {OfficeFormAdd, Icon, OfficeCard},
 	data() {
 		return {
-			isFormAddOpen: false
+			isFormAddOpen: false,
+			message: ''
 		}
 	},
 	computed: {
@@ -63,8 +73,14 @@ export default {
 		}
 	},
 	methods: {
-		handleFormExit() {
+		handleFormExit(message) {
 			this.isFormAddOpen = false
+			if (!message) return
+
+			this.message = message
+			setTimeout(() => {
+				this.message = ''
+			}, 4000)
 		}
 	}
 }
@@ -98,8 +114,15 @@ export default {
 	@apply absolute inset-0 transition duration-500;
 }
 
-.slide-top-enter-active {
+.slide-top-enter-active,
+.slide-bottom-enter-active,
+.slide-bottom-leave-active {
 	@apply transition duration-500;
+}
+
+.slide-bottom-enter,
+.slide-bottom-leave-to {
+	@apply transform -translate-y-12 opacity-0
 }
 
 .fade-enter,

@@ -116,7 +116,7 @@ export default {
 			scrollTo({top: 0, behavior: 'smooth'})
 			setTimeout(() => {
 				this.addLocation(this.location)
-				this.$emit('exit')
+				this.$emit('exit', 'THE LOCATION HAS BEEN CREATED')
 			}, 150)
 		},
 
