@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<section>
 		<button
 			type="button"
 			:class="_colorClass"
@@ -28,7 +28,7 @@
 				</div>
 			</transition>
 		</smooth-reflow>
-	</div>
+	</section>
 </template>
 
 <script>
