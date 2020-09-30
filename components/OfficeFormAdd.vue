@@ -9,9 +9,9 @@
 
 		<OfficeFormColor class="mb-6" :color="location.color" @select="handleColorSelect"/>
 
-		<!-- Title row -->
-		<section class="w-full mb-6">
-			<label>
+		<section>
+			<!-- Title row -->
+			<label class="block w-full mb-6">
 				Title
 				<span class="text-gray-500">*</span>
 				<span class="relative block">
@@ -37,12 +37,10 @@
 					</transition>
 				</smooth-reflow>
 			</label>
-		</section>
-		<!-- End: Title row -->
+			<!-- End: Title row -->
 
-		<!-- Address row -->
-		<section class="w-full mb-6">
-			<label>
+			<!-- Address row -->
+			<label class="block w-full mb-6">
 				Enter the address
 				<span class="text-gray-500">*</span>
 				<span class="relative block">
@@ -68,15 +66,15 @@
 					</transition>
 				</smooth-reflow>
 			</label>
+			<!-- End: Address row -->
 		</section>
-		<!-- End: Address row -->
 
 		<span class="inline-block mb-3 text-xs font-semibold tracking-wide text-teal-500">CONTACT INFORMATION</span>
 		<span class="block w-full h-1 mb-4 border-t border-gray-300"/>
 
 		<!-- Contact name row -->
-		<section class="w-full mb-6">
-			<label>
+		<section>
+			<label class="block w-full mb-6">
 				Full name
 				<span class="text-gray-500">*</span>
 				<span class="relative block">
@@ -102,12 +100,10 @@
 					</transition>
 				</smooth-reflow>
 			</label>
-		</section>
-		<!-- End: Contact name row -->
+			<!-- End: Contact name row -->
 
-		<!-- Contact job row -->
-		<section class="w-full mb-6">
-			<label>
+			<!-- Contact job row -->
+			<label class="block w-full mb-6">
 				Job Position
 				<span class="text-gray-500">*</span>
 				<span class="relative block">
@@ -133,12 +129,10 @@
 					</transition>
 				</smooth-reflow>
 			</label>
-		</section>
-		<!-- End: Contact job row -->
+			<!-- End: Contact job row -->
 
-		<!-- Contact email row -->
-		<section class="w-full mb-6">
-			<label>
+			<!-- Contact email row -->
+			<label class="block w-full mb-6">
 				Email address
 				<span class="text-gray-500">*</span>
 				<span class="relative block">
@@ -166,12 +160,10 @@
 					</transition>
 				</smooth-reflow>
 			</label>
-		</section>
-		<!-- End: Contact email row -->
+			<!-- End: Contact email row -->
 
-		<!-- Contact phone row -->
-		<section class="w-full mb-6">
-			<label>
+			<!-- Contact phone row -->
+			<label class="block w-full mb-6">
 				Phone
 				<span class="text-gray-500">*</span>
 				<span class="relative block">
