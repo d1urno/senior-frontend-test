@@ -23,7 +23,7 @@
 							class="w-full h-32 max-w-md flex items-center justify-center
 							text-white rounded-lg focus:outline-none"
 							@click.prevent="handleSelection(colorCode)">
-						<icon v-if="color === colorCode" type="check"/>
+						<icon v-if="value === colorCode" type="check"/>
 					</button>
 				</div>
 			</transition>
@@ -46,7 +46,7 @@ export default {
 	name: 'OfficeFormColor',
 	components: {Icon},
 	props: {
-		color: {
+		value: {
 			type: String,
 			required: true
 		}
@@ -58,12 +58,12 @@ export default {
 	},
 	computed: {
 		_colorClass() {
-			return Colors[this.color]
+			return Colors[this.value]
 		}
 	},
 	methods: {
 		handleSelection(colorCode) {
-			this.$emit('select', colorCode)
+			this.$emit('input', colorCode)
 			this.isOpen = false
 		}
 	},

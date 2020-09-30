@@ -7,7 +7,7 @@
 			</button>
 		</header>
 
-		<OfficeFormColor class="mb-6" :color="location.color" @select="handleColorSelect"/>
+		<office-form-color class="mb-6" v-model="location.color"/>
 
 		<section>
 			<!-- Title row -->
