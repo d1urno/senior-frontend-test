@@ -64,10 +64,10 @@
 
 		<!-- Edit form -->
 		<transition name="slide-top">
-			<office-form-add v-if="isEditFormOpen"
-							 :edit="location.id"
-							 @exit="isEditFormOpen = false"
-							 @message="(val) => $emit('message', val)"/>
+			<office-form v-if="isEditFormOpen"
+						 :edit="location.id"
+						 @exit="isEditFormOpen = false"
+						 @message="(val) => $emit('message', val)"/>
 		</transition>
 		<!-- End: Edit form -->
 	</smooth-reflow>
@@ -75,7 +75,7 @@
 
 <script>
 import Icon from '@/components/Icon'
-import OfficeFormAdd from '@/components/OfficeFormAdd'
+import OfficeForm from '@/components/OfficeForm'
 
 const Colors = {
 	teal: 'bg-teal-500',
@@ -87,7 +87,7 @@ const Colors = {
 
 export default {
 	name: 'OfficeCard',
-	components: {OfficeFormAdd, Icon},
+	components: {OfficeForm, Icon},
 	props: {
 		location: {
 			type: Object,

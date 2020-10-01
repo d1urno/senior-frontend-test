@@ -18,12 +18,12 @@
 			<smooth-reflow class="relative w-full max-w-md">
 				<!-- Add location button -->
 				<transition name="fade">
-					<button v-if="!isFormAddOpen"
+					<button v-if="!isAddFormOpen"
 							class="w-full px-8 py-5 my-6
 									flex justify-between items-center
 									text-left text-white bg-red-500 rounded-lg shadow-lg
 									focus:outline-none"
-							@click="isFormAddOpen = true">
+							@click="isAddFormOpen = true">
 						<span>Add New Location</span>
 						<icon type="add"/>
 					</button>
@@ -32,10 +32,9 @@
 
 				<!-- Add location form -->
 				<transition name="slide-top">
-					<office-form-add v-if="isFormAddOpen"
-									 class="my-6"
-									 @exit="isFormAddOpen = false"
-									 @message="showMessage"/>
+					<office-form v-if="isAddFormOpen" class="my-6"
+								 @exit="isAddFormOpen = false"
+								 @message="showMessage"/>
 				</transition>
 				<!-- End: Add location form -->
 			</smooth-reflow>
@@ -65,13 +64,13 @@
 <script>
 import OfficeCard from '@/components/OfficeCard'
 import Icon from '@/components/Icon'
-import OfficeFormAdd from '@/components/OfficeFormAdd'
+import OfficeForm from '@/components/OfficeForm'
 
 export default {
-	components: {OfficeFormAdd, Icon, OfficeCard},
+	components: {OfficeForm, Icon, OfficeCard},
 	data() {
 		return {
-			isFormAddOpen: false,
+			isAddFormOpen: false,
 			message: ''
 		}
 	},

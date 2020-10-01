@@ -77,7 +77,7 @@ import OfficeFormColor from '@/components/OfficeFormColor'
 import OfficeFormInput from '@/components/OfficeFormInput'
 
 export default {
-	name: 'OfficeFormAdd',
+	name: 'OfficeForm',
 	components: {OfficeFormInput, OfficeFormColor, Icon},
 	props: {
 		edit: {
