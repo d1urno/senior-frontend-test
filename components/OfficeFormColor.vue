@@ -4,7 +4,7 @@
 		<button
 			type="button"
 			:class="_colorClass"
-			class="w-full h-40 max-w-xs flex items-center justify-center
+			class="w-full h-32 max-w-xs flex items-center justify-center
 			transition-colors duration-500
 			font-semibold text-white rounded-lg shadow-lg
 			focus:outline-none"
@@ -19,7 +19,7 @@
 		<!-- Available color list -->
 		<smooth-reflow class="relative">
 			<transition name="fade">
-				<div v-if="isOpen" class="mt-6 space-y-6">
+				<div v-if="isOpen" class="mt-4 space-y-2">
 					<button v-for="(colorClass, colorCode) in $options.colors"
 							:key="colorCode"
 							:class="colorClass"
