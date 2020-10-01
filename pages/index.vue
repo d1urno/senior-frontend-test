@@ -15,7 +15,7 @@
 				Offices
 			</h1>
 
-			<smooth-reflow class="relative w-full max-w-md">
+			<smooth-reflow class="relative w-full max-w-xs">
 				<!-- Add location button -->
 				<transition name="fade">
 					<button v-if="!isAddFormOpen"
@@ -41,7 +41,7 @@
 
 			<!-- Location list -->
 			<transition-group name="zoom-fade" tag="ul" class="w-full">
-				<li v-for="location in _locations" :key="location.id" class="relative w-full max-w-md mx-auto mb-6">
+				<li v-for="location in _locations" :key="location.id" class="relative w-full max-w-xs mx-auto mb-6">
 					<office-card :location="location" @message="showMessage"/>
 				</li>
 			</transition-group>

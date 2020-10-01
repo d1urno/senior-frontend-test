@@ -4,7 +4,7 @@
 		<button
 			type="button"
 			:class="_colorClass"
-			class="w-full h-40 max-w-md flex items-center justify-center
+			class="w-full h-40 max-w-xs flex items-center justify-center
 			transition-colors duration-500
 			font-semibold text-white rounded-lg shadow-lg
 			focus:outline-none"
@@ -23,7 +23,7 @@
 					<button v-for="(colorClass, colorCode) in $options.colors"
 							:key="colorCode"
 							:class="colorClass"
-							class="w-full h-32 max-w-md flex items-center justify-center
+							class="w-full h-32 max-w-xs flex items-center justify-center
 							text-white rounded-lg focus:outline-none"
 							@click.prevent="handleSelection(colorCode)">
 						<icon v-if="value === colorCode" type="check"/>
