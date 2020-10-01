@@ -27,7 +27,7 @@
 		<!-- Error message -->
 		<smooth-reflow :options="$options.options">
 			<transition name="zoom-fade">
-				<p v-show="error" class="inline-block mt-1 text-xs text-red-600">
+				<p v-if="error" class="inline-block mt-1 text-xs text-red-600">
 					{{ error }}
 				</p>
 			</transition>
