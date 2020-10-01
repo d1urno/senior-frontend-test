@@ -19,7 +19,7 @@
 				<!-- Add location button -->
 				<transition name="fade">
 					<button v-if="!isAddFormOpen"
-							class="w-full px-8 py-5 my-6
+							class="w-full px-6 py-4 my-6
 									flex justify-between items-center
 									text-left text-white bg-red-500 rounded-lg shadow-lg
 									focus:outline-none"

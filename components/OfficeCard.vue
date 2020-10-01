@@ -5,12 +5,12 @@
 			<div v-if="!isEditFormOpen" class="relative overflow-y-hidden bg-white rounded-lg shadow-lg">
 				<!-- Card header -->
 				<header class="relative z-10">
-					<button class="h-48 p-8 w-full flex justify-between items-center
+					<button class="h-40 p-6 w-full flex justify-between items-center
 							text-white rounded-lg shadow-lg focus:outline-none"
 							:class="_colorClass"
 							@click="isOpen = !isOpen">
 						<span class="text-left">
-							<span class="block text-3xl font-semibold">{{ location.title }}</span>
+							<span class="block mb-1 text-2xl font-semibold">{{ location.title }}</span>
 							<span class="">{{ location.address }}</span>
 						</span>
 						<icon type="chevron"
@@ -23,9 +23,9 @@
 				<!-- Card body -->
 				<smooth-reflow>
 					<transition name="fade">
-						<div v-if="isOpen" class="px-12">
-							<section class="pt-8 pb-4 -mt-2 space-y-3 text-gray-900">
-								<h3 class="block text-3xl font-semibold">
+						<div v-if="isOpen" class="px-8">
+							<section class="pt-8 pb-4 -mt-2 space-y-2 text-gray-900">
+								<h3 class="block text-xl font-bold">
 									{{ location.contact.name }}
 								</h3>
 								<p>{{ location.contact.job }}</p>
