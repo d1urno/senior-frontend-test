@@ -34,15 +34,16 @@
 				<transition name="slide-top">
 					<office-form-add v-if="isFormAddOpen"
 									 class="my-6"
-									 @exit="handleFormExit"/>
+									 @exit="isFormAddOpen = false"
+									 @message="showMessage"/>
 				</transition>
 				<!-- End: Add location form -->
 			</smooth-reflow>
 
 			<!-- Location list -->
-			<transition-group name="zoom-fade" tag="ul" class="relative w-full">
-				<li v-for="location in _locations" :key="location.id" class="w-full max-w-md mx-auto mb-6">
-					<office-card :location="location"/>
+			<transition-group name="zoom-fade" tag="ul" class="w-full">
+				<li v-for="location in _locations" :key="location.id" class="relative w-full max-w-md mx-auto mb-6">
+					<office-card :location="location" @message="showMessage"/>
 				</li>
 			</transition-group>
 			<!-- End: Location list -->
@@ -80,10 +81,7 @@ export default {
 		}
 	},
 	methods: {
-		handleFormExit(message) {
-			this.isFormAddOpen = false
-			if (!message) return
-
+		showMessage(message) {
 			this.message = message
 			setTimeout(() => {
 				this.message = ''

@@ -1,7 +1,9 @@
 <template>
-	<form @submit.prevent="submit" class="w-full px-8 py-6 text-gray-800 bg-white rounded-lg shadow-lg">
+	<form @submit.prevent="submit"
+		  class="w-full px-8 py-6 text-gray-800 bg-white rounded-lg shadow-lg c-scroll-container">
 		<header class="flex items-center justify-between mb-10">
-			<h2 class="font-bold select-none">New Location</h2>
+			<h2 v-if="!edit" class="font-bold select-none">New Location</h2>
+			<h2 v-else class="font-bold select-none">Edit Location</h2>
 			<button type="button" class="focus:outline-none" @click.prevent="$emit('exit')">
 				<icon class="text-gray-500" type="close"/>
 			</button>
@@ -77,19 +79,15 @@ import OfficeFormInput from '@/components/OfficeFormInput'
 export default {
 	name: 'OfficeFormAdd',
 	components: {OfficeFormInput, OfficeFormColor, Icon},
+	props: {
+		edit: {
+			type: Number,
+			default: 0
+		}
+	},
 	data() {
 		return {
-			location: {
-				title: '',
-				address: '',
-				color: 'orange',
-				contact: {
-					name: '',
-					job: '',
-					email: '',
-					phone: ''
-				}
-			},
+			location: this.getInitialData(),
 			errors: {
 				title: '',
 				address: '',
@@ -110,15 +108,49 @@ export default {
 			return this.$store.dispatch('addLocation', location)
 		},
 
+		editLocation(location) {
+			return this.$store.dispatch('editLocation', location)
+		},
+
+		getInitialData() {
+			if (this.edit) {
+				// Create a copy of stored location
+				const location = this.$store.getters.locations.find(value => value.id === this.edit)
+				return {...location, contact: {...location.contact}}
+			}
+			// Return an empty location
+			return {
+				title: '',
+				address: '',
+				color: 'orange',
+				contact: {
+					name: '',
+					job: '',
+					email: '',
+					phone: ''
+				}
+			}
+		},
+
 		submit() {
 			if (!this.validateForm(true)) return
 
 			// Close and show success message
-			scrollTo({top: 0, behavior: 'smooth'})
-			setTimeout(() => {
-				this.addLocation(this.location)
-				this.$emit('exit', 'THE LOCATION HAS BEEN CREATED')
-			}, 150)
+			if (!this.edit) {
+				scrollTo({top: 0, behavior: 'smooth'})
+				setTimeout(() => {
+					this.$emit('exit')
+					this.$emit('message', 'THE LOCATION HAS BEEN CREATED.')
+					this.addLocation(this.location)
+				}, 150)
+			} else {
+				this.$el.scrollIntoView({behavior: 'smooth'})
+				setTimeout(() => {
+					this.$emit('exit')
+					this.$emit('message', 'THE LOCATION HAS BEEN UPDATED.')
+				}, 100)
+				this.editLocation(this.location)
+			}
 		},
 
 		validateForm(pointErrors) {
@@ -221,3 +253,10 @@ export default {
 	}
 }
 </script>
+
+<style scoped>
+.c-scroll-container {
+	scroll-margin: 9rem;
+	scroll-padding: 9rem
+}
+</style>

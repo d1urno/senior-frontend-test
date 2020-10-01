@@ -1,59 +1,81 @@
 <template>
-	<div class="relative overflow-y-hidden bg-white rounded-lg shadow-lg">
-		<header class="relative z-10">
-			<button @click="isOpen = !isOpen" :class="_colorClass" class="h-48 p-8 w-full
-				flex justify-between items-center text-white rounded-lg shadow-lg
-				focus:outline-none">
-				<span class="text-left">
-					<span class="block text-3xl font-semibold">{{ location.title }}</span>
-					<span class="">{{ location.address }}</span>
-				</span>
-				<icon type="chevron"
-					  class="transition-transform transform duration-500"
-					  :class="{ 'rotate-180': isOpen }"/>
-			</button>
-		</header>
+	<smooth-reflow>
+		<!-- Location card -->
+		<transition name="fade">
+			<div v-if="!isEditFormOpen" class="relative overflow-y-hidden bg-white rounded-lg shadow-lg">
+				<!-- Card header -->
+				<header class="relative z-10">
+					<button class="h-48 p-8 w-full flex justify-between items-center
+							text-white rounded-lg shadow-lg focus:outline-none"
+							:class="_colorClass"
+							@click="isOpen = !isOpen">
+						<span class="text-left">
+							<span class="block text-3xl font-semibold">{{ location.title }}</span>
+							<span class="">{{ location.address }}</span>
+						</span>
+						<icon type="chevron"
+							  class="transition-transform duration-500 transform"
+							  :class="{ 'rotate-180': isOpen }"/>
+					</button>
+				</header>
+				<!-- End: Card header -->
 
-		<smooth-reflow>
-			<transition name="fade">
-				<div v-if="isOpen" class="px-12">
-					<section class="pt-8 pb-4 -mt-2 space-y-3">
-						<h3 class="block text-3xl font-semibold text-gray-800">
-							{{ location.contact.name }}
-						</h3>
-						<p>{{ location.contact.job }}</p>
-						<a :href="`mailto:${location.contact.email}`"
-						   class="inline-block text-teal-500 focus:outline-none focus:underline">
-							{{ location.contact.email }}
-						</a>
-						<p>{{ location.contact.phone }}</p>
-					</section>
+				<!-- Card body -->
+				<smooth-reflow>
+					<transition name="fade">
+						<div v-if="isOpen" class="px-12">
+							<section class="pt-8 pb-4 -mt-2 space-y-3">
+								<h3 class="block text-3xl font-semibold text-gray-800">
+									{{ location.contact.name }}
+								</h3>
+								<p>{{ location.contact.job }}</p>
+								<a :href="`mailto:${location.contact.email}`"
+								   class="inline-block text-teal-500 focus:outline-none focus:underline">
+									{{ location.contact.email }}
+								</a>
+								<p>{{ location.contact.phone }}</p>
+							</section>
 
-					<span class="block w-full h-1 border-t border-gray-300"/>
+							<span class="block w-full h-1 border-t border-gray-300"/>
 
-					<footer class="flex justify-between px-1 pt-4 pb-6">
-						<button class="px-2 py-1 -mx-3 -my-1 text-xs tracking-wider
-							flex items-center select-none
-							text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
-							<icon type="edit" class="mr-2"/>
-							EDIT
-						</button>
-						<button class="px-2 py-1 -mx-3 -my-1 text-xs tracking-wider
-							flex items-center select-none
-							text-red-500 rounded-lg hover:bg-red-100 focus:outline-none focus:bg-red-100"
-							@click="deleteLocation(location)">
-							<icon type="delete" class="mr-2"/>
-							DELETE
-						</button>
-					</footer>
-				</div>
-			</transition>
-		</smooth-reflow>
-	</div>
+							<footer class="flex justify-between px-1 pt-4 pb-6">
+								<button class="px-2 py-1 -mx-3 -my-1 text-xs tracking-wider
+										flex items-center select-none
+										text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+										@click="isEditFormOpen = true">
+									<icon type="edit" class="mr-2"/>
+									EDIT
+								</button>
+								<button class="px-2 py-1 -mx-3 -my-1 text-xs tracking-wider
+										flex items-center select-none
+										text-red-500 rounded-lg hover:bg-red-100 focus:outline-none focus:bg-red-100"
+										@click="deleteLocation(location)">
+									<icon type="delete" class="mr-2"/>
+									DELETE
+								</button>
+							</footer>
+						</div>
+					</transition>
+				</smooth-reflow>
+				<!-- End: Card body -->
+			</div>
+		</transition>
+		<!-- End: Location card -->
+
+		<!-- Edit form -->
+		<transition name="slide-top">
+			<office-form-add v-if="isEditFormOpen"
+							 :edit="location.id"
+							 @exit="isEditFormOpen = false"
+							 @message="(val) => $emit('message', val)"/>
+		</transition>
+		<!-- End: Edit form -->
+	</smooth-reflow>
 </template>
 
 <script>
 import Icon from '@/components/Icon'
+import OfficeFormAdd from '@/components/OfficeFormAdd'
 
 const Colors = {
 	teal: 'bg-teal-500',
@@ -65,7 +87,7 @@ const Colors = {
 
 export default {
 	name: 'OfficeCard',
-	components: {Icon},
+	components: {OfficeFormAdd, Icon},
 	props: {
 		location: {
 			type: Object,
@@ -74,7 +96,8 @@ export default {
 	},
 	data() {
 		return {
-			isOpen: false
+			isOpen: false,
+			isEditFormOpen: false
 		}
 	},
 	computed: {
@@ -97,10 +120,21 @@ export default {
 }
 
 .fade-leave-active {
-	@apply transition duration-500 absolute inset-x-0
+	@apply absolute inset-x-0 transition duration-500
 }
 
-.fade-enter-active {
+.slide-top-enter,
+.slide-top-leave-to {
+	@apply transform translate-y-12 opacity-0
+}
+
+
+.slide-top-leave-active {
+	@apply absolute inset-0 transition duration-500
+}
+
+.fade-enter-active,
+.slide-top-enter-active {
 	@apply transition duration-500
 }
 </style>
