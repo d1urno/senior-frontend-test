@@ -1,6 +1,6 @@
 <template>
 	<form @submit.prevent="submit"
-		  class="w-full px-8 py-6 text-gray-800 bg-white rounded-lg shadow-lg c-scroll-container">
+		  class="w-full px-8 py-6 text-gray-900 bg-white rounded-lg shadow-lg c-scroll-container">
 		<header class="flex items-center justify-between mb-10">
 			<h2 v-if="!edit" class="font-bold select-none">New Location</h2>
 			<h2 v-else class="font-bold select-none">Edit Location</h2>
@@ -27,7 +27,7 @@
 		</section>
 
 		<span class="inline-block mb-3 text-xs font-semibold tracking-wide text-teal-500">CONTACT INFORMATION</span>
-		<span class="block w-full h-1 mb-4 border-t border-gray-300"/>
+		<span class="block w-full h-1 mb-4 border-t border-gray-200"/>
 
 		<section>
 			<!-- Contact name row -->

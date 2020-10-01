@@ -3,7 +3,7 @@
 		<!-- Message modal -->
 		<transition name="slide-bottom">
 			<span v-if="message" class="fixed z-50 inset-0 h-20 flex items-center justify-center text-sm
-								 bg-white border-t-4 border-teal-500 shadow-lg text-gray-800">
+								 bg-white border-t-4 border-teal-500 shadow-lg text-gray-900">
 				<icon type="check" class="mr-3 text-teal-500"/>
 				{{ message }}
 			</span>

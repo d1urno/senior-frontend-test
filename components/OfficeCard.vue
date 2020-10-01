@@ -24,8 +24,8 @@
 				<smooth-reflow>
 					<transition name="fade">
 						<div v-if="isOpen" class="px-12">
-							<section class="pt-8 pb-4 -mt-2 space-y-3">
-								<h3 class="block text-3xl font-semibold text-gray-800">
+							<section class="pt-8 pb-4 -mt-2 space-y-3 text-gray-900">
+								<h3 class="block text-3xl font-semibold">
 									{{ location.contact.name }}
 								</h3>
 								<p>{{ location.contact.job }}</p>
@@ -36,7 +36,7 @@
 								<p>{{ location.contact.phone }}</p>
 							</section>
 
-							<span class="block w-full h-1 border-t border-gray-300"/>
+							<span class="block w-full h-1 border-t border-gray-200"/>
 
 							<footer class="flex justify-between px-1 pt-4 pb-6">
 								<button class="px-2 py-1 -mx-3 -my-1 text-xs tracking-wider

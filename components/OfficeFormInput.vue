@@ -18,9 +18,9 @@
 				   :inputmode="inputMode"
 				   :placeholder="placeholder"
 				   class="w-full px-4 py-2 mt-1
-				   border border-gray-500 rounded-md shadow
+				   border border-gray-500 rounded-md shadow placeholder-gray-500
 				   focus:outline-none focus:border-teal-500 c-scroll-container"
-				   :class="{ 'border-red-500': error, 'border-gray-800': _value }"/>
+				   :class="{ 'border-red-500': error, 'border-gray-900': _value }"/>
 			<!-- End: User input -->
 		</span>
 
