@@ -108,6 +108,7 @@ export default {
 	methods: {
 		deleteLocation(location) {
 			this.$store.dispatch('deleteLocation', location)
+			this.$emit('message', 'THE LOCATION HAS BEEN DELETED.')
 		}
 	}
 }
