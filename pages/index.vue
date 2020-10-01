@@ -96,17 +96,14 @@ export default {
 	@apply transform scale-90 opacity-0
 }
 
-.zoom-fade-leave-active {
+.zoom-fade-leave-active,
+.fade-leave-active {
 	@apply absolute inset-x-0 transition duration-500;
 }
 
 .zoom-fade-enter-active {
 	@apply transition duration-700 delay-500;
 	transition-timing-function: cubic-bezier(0.35, 0.46, 0.17, 1.3)
-}
-
-.zoom-fade-move {
-	@apply transition duration-500;
 }
 
 .slide-top-enter,
@@ -120,7 +117,9 @@ export default {
 
 .slide-top-enter-active,
 .slide-bottom-enter-active,
-.slide-bottom-leave-active {
+.slide-bottom-leave-active,
+.fade-enter-active,
+.zoom-fade-move {
 	@apply transition duration-500;
 }
 
@@ -132,13 +131,5 @@ export default {
 .fade-enter,
 .fade-leave-to {
 	@apply transform opacity-0
-}
-
-.fade-leave-active {
-	@apply transition duration-500 absolute inset-x-0
-}
-
-.fade-enter-active {
-	@apply transition duration-500
 }
 </style>
