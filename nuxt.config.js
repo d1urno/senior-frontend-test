@@ -6,6 +6,9 @@ export default {
 	 * Headers of the page
 	 */
 	head: {
+		htmlAttrs: {
+			lang: 'en'
+		},
 		title: process.env.npm_package_name || 'Dog and Pony Studios - Senior Frontend Developer Test',
 		meta: [
 			{ charset: 'utf-8' },
