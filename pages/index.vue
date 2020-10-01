@@ -1,5 +1,5 @@
 <template>
-	<div class="min-h-screen overflow-y-hidden bg-gray-200">
+	<div class="relative min-h-screen overflow-y-hidden bg-gray-200">
 		<!-- Message modal -->
 		<transition name="slide-bottom">
 			<span v-if="message" class="fixed z-50 inset-0 h-20 flex items-center justify-center text-sm
