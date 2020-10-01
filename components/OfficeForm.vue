@@ -1,6 +1,6 @@
 <template>
 	<form @submit.prevent="submit"
-		  class="w-full px-8 py-6 text-gray-900 bg-white rounded-lg shadow-lg c-scroll-container">
+		  class="w-full px-6 py-3 text-gray-900 bg-white rounded-lg shadow-lg c-scroll-container">
 		<header class="flex items-center justify-between mb-10">
 			<h2 v-if="!edit" class="font-bold select-none">New Location</h2>
 			<h2 v-else class="font-bold select-none">Edit Location</h2>
@@ -59,10 +59,10 @@
 							   @reset-error="errors.contactPhone = ''"/>
 		</section>
 
-		<footer>
+		<footer class="mb-3">
 			<button type="submit"
-					class="relative p-2 px-6 flex items-center
-					rounded-md text-white transition duration-300
+					class="relative p-2 px-4 flex items-center
+					rounded text-white transition duration-300
 					focus:outline-none focus:shadow-outline select-none"
 					:class="{ 'bg-teal-500': _validated, 'bg-gray-400': !_validated }">
 				Save
