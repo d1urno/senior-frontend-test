@@ -21,7 +21,7 @@ export const mutations = {
 
 export const actions = {
 	addLocation({state, commit}, location) {
-		const lastId = state.locations[0].id + 1
+		const lastId = (state.locations[0] ? state.locations[0].id : 0) + 1
 		commit('ADD_LOCATION', {id: lastId, ...location})
 		return location
 	},
