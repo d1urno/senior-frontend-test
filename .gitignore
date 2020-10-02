@@ -7,3 +7,6 @@ node_modules
 # Nuxt folders
 .nuxt
 dist
+
+# Tests
+coverage

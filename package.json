@@ -4,13 +4,18 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "start": "nuxt start"
+    "start": "nuxt start",
+    "test": "jest"
   },
   "dependencies": {
     "nuxt": "^2.14.6",
     "vue-smooth-reflow": "^0.1.12"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^3.1.0"
+    "@nuxtjs/tailwindcss": "^3.1.0",
+    "@vue/test-utils": "^1.1.0",
+    "babel-jest": "^26.3.0",
+    "jest": "^26.4.2",
+    "vue-jest": "^4.0.0-0"
   }
 }
