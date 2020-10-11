@@ -12,6 +12,7 @@ The final result includes:
 - Eslint + Prettier code format
 - 100 lighthouse score on performance, best practices and SEO
 - Unit tests (91% coverage)
+- Continuous static deploys on Netlify
 
 https://dps-senior-frontend-test.netlify.app/
 
