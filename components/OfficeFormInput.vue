@@ -44,7 +44,7 @@ export default {
 	components: { Icon },
 	props: {
 		error: {
-			type: [String, undefined],
+			type: String | undefined,
 			required: true
 		},
 		value: {
