@@ -9,6 +9,7 @@ The final result includes:
 - Smooth input validations
 - Responsive
 - Transitions on all user interactions
+- Eslint + Prettier code format
 - 100 lighthouse score on performance, best practices and SEO
 - Unit tests (91% coverage)
 
