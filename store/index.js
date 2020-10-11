@@ -11,8 +11,8 @@ export const mutations = {
 	EDIT_LOCATION(state, location) {
 		state.locations = state.locations.map((value) => {
 			if (value.id === location.id) return location
-			return value;
-		});
+			return value
+		})
 	},
 	DELETE_LOCATION(state, locationId) {
 		state.locations.splice(locationId, 1)
@@ -20,16 +20,16 @@ export const mutations = {
 }
 
 export const actions = {
-	addLocation({state, commit}, location) {
+	addLocation({ state, commit }, location) {
 		const lastId = (state.locations[0] ? state.locations[0].id : 0) + 1
-		commit('ADD_LOCATION', {id: lastId, ...location})
+		commit('ADD_LOCATION', { id: lastId, ...location })
 		return location
 	},
-	editLocation({commit}, location) {
+	editLocation({ commit }, location) {
 		commit('EDIT_LOCATION', location)
 		return location
 	},
-	deleteLocation({state, commit}, location) {
+	deleteLocation({ state, commit }, location) {
 		const index = state.locations
 			.map((value) => {
 				return location.id === value.id

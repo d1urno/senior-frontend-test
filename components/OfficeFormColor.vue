@@ -1,18 +1,20 @@
 <template>
 	<section>
-		<!-- Selected color -->
+		<!-- Selected color --><!-- prettier-ignore -->
 		<button
 			type="button"
 			:class="_colorClass"
-			class="w-full h-32 max-w-xs flex items-center justify-center
-			transition-colors duration-500
-			font-semibold text-white rounded-lg shadow-lg
+			class="flex items-center justify-center w-full h-32 max-w-xs
+			font-semibold text-white transition-colors duration-500 rounded-lg shadow-lg
 			focus:outline-none"
-			@click.prevent="isOpen = !isOpen">
+			@click.prevent="isOpen = !isOpen"
+		>
 			Select Color
-			<icon type="chevron"
-				  class="w-4 h-4 mt-1 ml-3 transition-transform duration-500 transform"
-				  :class="{ 'rotate-180': isOpen }"/>
+			<icon
+				type="chevron"
+				class="w-4 h-4 mt-1 ml-3 transition-transform duration-500 transform"
+				:class="{ 'rotate-180': isOpen }"
+			/>
 		</button>
 		<!-- End: Selected color -->
 
@@ -20,13 +22,17 @@
 		<smooth-reflow class="relative">
 			<transition name="fade">
 				<div v-if="isOpen" class="mt-4 space-y-2">
-					<button v-for="(colorClass, colorCode) in $options.colors"
-							:key="colorCode"
-							:class="colorClass"
-							class="w-full h-32 max-w-xs flex items-center justify-center
-							text-white rounded-lg focus:outline-none"
-							@click.prevent="handleSelection(colorCode)">
-						<icon v-if="value === colorCode" type="check"/>
+					<!-- prettier-ignore -->
+					<button
+						v-for="(colorClass, colorCode) in $options.colors"
+						:key="colorCode"
+						:class="colorClass"
+						class="flex items-center justify-center w-full h-32 max-w-xs
+						text-white rounded-lg
+						focus:outline-none"
+						@click.prevent="handleSelection(colorCode)"
+					>
+						<icon v-if="value === colorCode" type="check" />
 					</button>
 				</div>
 			</transition>
@@ -48,7 +54,7 @@ const Colors = {
 
 export default {
 	name: 'OfficeFormColor',
-	components: {Icon},
+	components: { Icon },
 	props: {
 		value: {
 			type: String,
@@ -78,14 +84,14 @@ export default {
 <style scoped>
 .fade-enter,
 .fade-leave-to {
-	@apply transform opacity-0
+	@apply transform opacity-0;
 }
 
 .fade-leave-active {
-	@apply transition duration-500 absolute inset-x-0
+	@apply absolute inset-x-0 transition duration-500;
 }
 
 .fade-enter-active {
-	@apply transition duration-500
+	@apply transition duration-500;
 }
 </style>

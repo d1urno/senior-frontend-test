@@ -1,70 +1,99 @@
 <template>
-	<form @submit.prevent="submit"
-		  class="w-full px-6 py-3 text-gray-900 bg-white rounded-lg shadow-lg c-scroll-container">
+	<form
+		class="w-full px-6 py-3 text-gray-900 bg-white rounded-lg shadow-lg c-scroll-container"
+		@submit.prevent="submit"
+	>
 		<header class="flex items-center justify-between mb-10">
 			<h2 v-if="!edit" class="font-bold select-none">New Location</h2>
 			<h2 v-else class="font-bold select-none">Edit Location</h2>
 			<button type="button" class="focus:outline-none" @click.prevent="$emit('exit')">
-				<icon class="text-gray-500" type="close"/>
+				<icon class="text-gray-500" type="close" />
 			</button>
 		</header>
 
 		<!-- Color picker row -->
-		<office-form-color class="mb-6" v-model="location.color"/>
+		<office-form-color v-model="location.color" class="mb-6" />
 
 		<section>
 			<!-- Title row -->
-			<office-form-input ref="title" :reference="'title'" title="Title"
-							   v-model="location.title"
-							   :error="errors.title"
-							   @reset-error="errors.title = ''"/>
+			<office-form-input
+				ref="title"
+				v-model="location.title"
+				:reference="'title'"
+				title="Title"
+				:error="errors.title"
+				@reset-error="errors.title = ''"
+			/>
 
 			<!-- Address row -->
-			<office-form-input ref="address" :reference="'address'" title="Enter the address"
-							   v-model="location.address"
-							   :error="errors.address"
-							   @reset-error="errors.address = ''"/>
+			<office-form-input
+				ref="address"
+				v-model="location.address"
+				:reference="'address'"
+				title="Enter the address"
+				:error="errors.address"
+				@reset-error="errors.address = ''"
+			/>
 		</section>
 
 		<span class="inline-block mb-3 text-xs font-semibold tracking-wide text-teal-500">CONTACT INFORMATION</span>
-		<span class="block w-full h-1 mb-4 border-t border-gray-200"/>
+		<span class="block w-full h-1 mb-4 border-t border-gray-200" />
 
 		<section>
 			<!-- Contact name row -->
-			<office-form-input ref="contactName" :reference="'contactName'" title="Full name"
-							   v-model="location.contact.name"
-							   :error="errors.contactName"
-							   @reset-error="errors.contactName = ''"/>
+			<office-form-input
+				ref="contactName"
+				v-model="location.contact.name"
+				:reference="'contactName'"
+				title="Full name"
+				:error="errors.contactName"
+				@reset-error="errors.contactName = ''"
+			/>
 
 			<!-- Contact job row -->
-			<office-form-input ref="contactJob" :reference="'contactJob'" title="Job Position"
-							   v-model="location.contact.job"
-							   :error="errors.contactJob"
-							   @reset-error="errors.contactJob = ''"/>
+			<office-form-input
+				ref="contactJob"
+				v-model="location.contact.job"
+				:reference="'contactJob'"
+				title="Job Position"
+				:error="errors.contactJob"
+				@reset-error="errors.contactJob = ''"
+			/>
 
 			<!-- Contact email row -->
-			<office-form-input ref="contactEmail" :reference="'contactEmail'" title="Email address"
-							   type="email"
-							   input-mode="email"
-							   placeholder="name@example.com"
-							   v-model="location.contact.email"
-							   :error="errors.contactEmail"
-							   @reset-error="errors.contactEmail = ''"/>
+			<office-form-input
+				ref="contactEmail"
+				v-model="location.contact.email"
+				:reference="'contactEmail'"
+				title="Email address"
+				type="email"
+				input-mode="email"
+				placeholder="name@example.com"
+				:error="errors.contactEmail"
+				@reset-error="errors.contactEmail = ''"
+			/>
 
 			<!-- Contact phone row -->
-			<office-form-input ref="contactPhone" :reference="'contactPhone'" title="Phone"
-							   placeholder="(xxx) xxx-xxxx"
-							   v-model="location.contact.phone"
-							   :error="errors.contactPhone"
-							   @reset-error="errors.contactPhone = ''"/>
+			<office-form-input
+				ref="contactPhone"
+				v-model="location.contact.phone"
+				:reference="'contactPhone'"
+				title="Phone"
+				placeholder="(xxx) xxx-xxxx"
+				:error="errors.contactPhone"
+				@reset-error="errors.contactPhone = ''"
+			/>
 		</section>
 
 		<footer class="mb-3">
-			<button type="submit"
-					class="relative p-2 px-4 flex items-center
-					rounded text-white transition duration-300
-					focus:outline-none focus:shadow-outline select-none"
-					:class="{ 'bg-teal-500': _validated, 'bg-gray-400': !_validated }">
+			<!-- prettier-ignore -->
+			<button
+				type="submit"
+				class="relative flex items-center p-2 px-4
+				text-white transition duration-300 rounded select-none
+				focus:outline-none focus:shadow-outline"
+				:class="{ 'bg-teal-500': _validated, 'bg-gray-400': !_validated }"
+			>
 				Save
 			</button>
 		</footer>
@@ -78,7 +107,7 @@ import OfficeFormInput from '@/components/OfficeFormInput'
 
 export default {
 	name: 'OfficeForm',
-	components: {OfficeFormInput, OfficeFormColor, Icon},
+	components: { OfficeFormInput, OfficeFormColor, Icon },
 	props: {
 		edit: {
 			type: Number,
@@ -115,8 +144,8 @@ export default {
 		getInitialData() {
 			if (this.edit) {
 				// Create a copy of stored location
-				const location = this.$store.getters.locations.find(value => value.id === this.edit)
-				return {...location, contact: {...location.contact}}
+				const location = this.$store.getters.locations.find((value) => value.id === this.edit)
+				return { ...location, contact: { ...location.contact } }
 			}
 			// Return an empty location
 			return {
@@ -137,14 +166,14 @@ export default {
 
 			// Close and show success message
 			if (!this.edit) {
-				scrollTo({top: 0, behavior: 'smooth'})
+				scrollTo({ top: 0, behavior: 'smooth' })
 				setTimeout(() => {
 					this.$emit('exit')
 					this.$emit('message', 'THE LOCATION HAS BEEN CREATED.')
 					this.addLocation(this.location)
 				}, 150)
 			} else {
-				this.$el.scrollIntoView({behavior: 'smooth'})
+				this.$el.scrollIntoView({ behavior: 'smooth' })
 				setTimeout(() => {
 					this.$emit('exit')
 					this.$emit('message', 'THE LOCATION HAS BEEN UPDATED.')
@@ -155,7 +184,7 @@ export default {
 
 		validateForm(pointErrors) {
 			// Create a deep copy of input so we can trim and evaluate it
-			const location = {...this.location, contact: {...this.location.contact}}
+			const location = { ...this.location, contact: { ...this.location.contact } }
 
 			// Trim white spaces
 			location.title = location.title.trim()
@@ -233,12 +262,10 @@ export default {
 			// if errors are present and pointErrors is true
 			if (Object.values(errors).find((value) => value.length > 0)) {
 				if (pointErrors) {
-					const elementId = Object.keys(errors)[
-						Object.values(errors).findIndex((value) => value.length > 0)
-						]
+					const elementId = Object.keys(errors)[Object.values(errors).findIndex((value) => value.length > 0)]
 					const element = this.$refs[elementId].$refs[elementId]
-					element.focus({preventScroll: true})
-					element.scrollIntoView({behavior: 'smooth'})
+					element.focus({ preventScroll: true })
+					element.scrollIntoView({ behavior: 'smooth' })
 
 					// Fill errors
 					this.errors = errors
@@ -257,6 +284,6 @@ export default {
 <style scoped>
 .c-scroll-container {
 	scroll-margin: 9rem;
-	scroll-padding: 9rem
+	scroll-padding: 9rem;
 }
 </style>

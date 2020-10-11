@@ -1,4 +1,4 @@
-import {shallowMount, createLocalVue} from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import OfficeCard from '@/components/OfficeCard.vue'
 import Vuex from 'vuex'
 
@@ -31,8 +31,9 @@ const location = {
 describe('OfficeCard', () => {
 	test('dispatches "deleteLocation" action when deleteLocation method is called', () => {
 		const wrapper = shallowMount(OfficeCard, {
-			store, localVue,
-			propsData: {location}
+			store,
+			localVue,
+			propsData: { location }
 		})
 		wrapper.vm.deleteLocation(location)
 
@@ -41,8 +42,9 @@ describe('OfficeCard', () => {
 
 	test('emits "message" after delete operation finishes', () => {
 		const wrapper = shallowMount(OfficeCard, {
-			store, localVue,
-			propsData: {location}
+			store,
+			localVue,
+			propsData: { location }
 		})
 		wrapper.vm.deleteLocation(location)
 

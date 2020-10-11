@@ -1,4 +1,4 @@
-import {shallowMount, createLocalVue} from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import index from '@/pages/index.vue'
 import data from '@/assets/data.json'
 import Vuex from 'vuex'
@@ -24,15 +24,18 @@ describe('index', () => {
 	test('shows message argument during 4000ms when showMessage method is called', async () => {
 		const message = 'check'
 		const wrapper = shallowMount(index, {
-			store, localVue
+			store,
+			localVue
 		})
 
 		wrapper.vm.showMessage(message)
 		expect(wrapper.vm.$data.message).toStrictEqual(message)
 
-		await new Promise((res) => setTimeout(() => {
-			expect(wrapper.vm.$data.message).toStrictEqual('')
-			res()
-		}, 4001))
+		await new Promise((resolve) =>
+			setTimeout(() => {
+				expect(wrapper.vm.$data.message).toStrictEqual('')
+				resolve()
+			}, 4001)
+		)
 	})
 })

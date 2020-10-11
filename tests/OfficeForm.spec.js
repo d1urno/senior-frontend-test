@@ -1,4 +1,4 @@
-import {shallowMount, createLocalVue} from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import OfficeForm from '@/components/OfficeForm.vue'
 import data from '@/assets/data.json'
 import Vuex from 'vuex'
@@ -57,16 +57,19 @@ window.HTMLElement.prototype.scrollIntoView = jest.fn()
 describe('OfficeForm', () => {
 	test('loads in "add" mode when no id is passed as prop', () => {
 		const wrapper = shallowMount(OfficeForm, {
-			store, localVue
+			store,
+			localVue
 		})
 		expect(wrapper.vm.getInitialData()).toStrictEqual(emptyLocation)
 	})
 
 	test('loads in "edit" mode when an id other than 0 is passed as prop', () => {
 		const wrapper = shallowMount(OfficeForm, {
-			store, localVue, propsData: {edit: 1}
+			store,
+			localVue,
+			propsData: { edit: 1 }
 		})
-		const editItem = store.getters.locations.find(val => val.id === 1)
+		const editItem = store.getters.locations.find((val) => val.id === 1)
 		expect(wrapper.vm.getInitialData()).toStrictEqual(editItem)
 	})
 
@@ -74,27 +77,27 @@ describe('OfficeForm', () => {
 		const wrapper = shallowMount(OfficeForm)
 
 		// Title validation
-		wrapper.setData({location: {...location, title: ''.repeat(3)}})
+		wrapper.setData({ location: { ...location, title: ''.repeat(3) } })
 		expect(wrapper.vm.validateForm()).toBeFalsy()
 
 		// Address validation
-		wrapper.setData({location: {...location, address: ''.repeat(3)}})
+		wrapper.setData({ location: { ...location, address: ''.repeat(3) } })
 		expect(wrapper.vm.validateForm()).toBeFalsy()
 
 		// Contact name validation
-		wrapper.setData({location: {...location, contact: {...location.contact, name: ''.repeat(3)}}})
+		wrapper.setData({ location: { ...location, contact: { ...location.contact, name: ''.repeat(3) } } })
 		expect(wrapper.vm.validateForm()).toBeFalsy()
 
 		// Contact job validation
-		wrapper.setData({location: {...location, contact: {...location.contact, job: ''.repeat(3)}}})
+		wrapper.setData({ location: { ...location, contact: { ...location.contact, job: ''.repeat(3) } } })
 		expect(wrapper.vm.validateForm()).toBeFalsy()
 
 		// Contact email validation
-		wrapper.setData({location: {...location, contact: {...location.contact, email: ''.repeat(3)}}})
+		wrapper.setData({ location: { ...location, contact: { ...location.contact, email: ''.repeat(3) } } })
 		expect(wrapper.vm.validateForm()).toBeFalsy()
 
 		// Contact phone validation
-		wrapper.setData({location: {...location, contact: {...location.contact, phone: ''.repeat(3)}}})
+		wrapper.setData({ location: { ...location, contact: { ...location.contact, phone: ''.repeat(3) } } })
 		expect(wrapper.vm.validateForm()).toBeFalsy()
 	})
 
@@ -102,7 +105,7 @@ describe('OfficeForm', () => {
 		const wrapper = shallowMount(OfficeForm)
 
 		// Contact phone validation
-		wrapper.setData({location: {...location, contact: {...location.contact, phone: 'a'.repeat(3)}}})
+		wrapper.setData({ location: { ...location, contact: { ...location.contact, phone: 'a'.repeat(3) } } })
 		expect(wrapper.vm.validateForm()).toBeFalsy()
 	})
 
@@ -110,33 +113,40 @@ describe('OfficeForm', () => {
 		const wrapper = shallowMount(OfficeForm)
 
 		// Contact phone validation
-		wrapper.setData({location: {...location}})
+		wrapper.setData({ location: { ...location } })
 		expect(wrapper.vm.validateForm()).toBeTruthy()
 	})
 
 	test('on add mode, dispatches "addLocation" action after 150ms when submit method is called and validation passed', async () => {
 		Element.prototype.scrollTo = () => {}
 		const wrapper = shallowMount(OfficeForm, {
-			store, localVue
+			store,
+			localVue
 		})
-		wrapper.setData({location: {...location}})
+		wrapper.setData({ location: { ...location } })
 		wrapper.vm.submit()
 
-		await new Promise((res) => setTimeout(() => {
-			expect(actions.addLocation).toHaveBeenCalled()
-			res()
-		}, 155))
+		await new Promise((res) =>
+			setTimeout(() => {
+				expect(actions.addLocation).toHaveBeenCalled()
+				res()
+			}, 155)
+		)
 	})
 
 	test('on edit mode, dispatches "editLocation" action after 100ms when submit method is called and validation passed', async () => {
 		const wrapper = shallowMount(OfficeForm, {
-			store, localVue, propsData: {edit: 1}
+			store,
+			localVue,
+			propsData: { edit: 1 }
 		})
 		wrapper.vm.submit()
 
-		await new Promise((res) => setTimeout(() => {
-			expect(actions.editLocation).toHaveBeenCalled()
-			res()
-		}, 105))
+		await new Promise((res) =>
+			setTimeout(() => {
+				expect(actions.editLocation).toHaveBeenCalled()
+				res()
+			}, 105)
+		)
 	})
 })

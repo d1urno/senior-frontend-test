@@ -5,22 +5,22 @@
 		<span class="relative block">
 			<!-- Error icon -->
 			<transition name="zoom-fade">
-				<icon v-show="error"
-					  type="error"
-					  class="absolute top-0 right-0 m-2 mt-3 text-red-500"/>
+				<icon v-show="error" type="error" class="absolute top-0 right-0 m-2 mt-3 text-red-500" />
 			</transition>
 			<!-- End: Error icon -->
 
-			<!-- User input -->
-			<input :ref="reference"
-				   v-model="_value"
-				   :type="type"
-				   :inputmode="inputMode"
-				   :placeholder="placeholder"
-				   class="w-full px-3 py-2 mt-1 text-sm
-				   border border-gray-500 rounded shadow placeholder-gray-500
-				   focus:outline-none focus:border-teal-500 c-scroll-container"
-				   :class="{ 'border-red-500': error, 'border-gray-900': _value }"/>
+			<!-- User input --><!-- prettier-ignore -->
+			<input
+				:ref="reference"
+				v-model="_value"
+				:type="type"
+				:inputmode="inputMode"
+				:placeholder="placeholder"
+				class="w-full px-3 py-2 mt-1
+				text-sm placeholder-gray-500 border border-gray-500 rounded shadow
+				focus:outline-none focus:border-teal-500 c-scroll-container"
+				:class="{ 'border-red-500': error, 'border-gray-900': _value }"
+			/>
 			<!-- End: User input -->
 		</span>
 
@@ -41,10 +41,10 @@ import Icon from '@/components/Icon'
 
 export default {
 	name: 'OfficeFormInput',
-	components: {Icon},
+	components: { Icon },
 	props: {
 		error: {
-			type: String | undefined,
+			type: [String, undefined],
 			required: true
 		},
 		value: {
@@ -94,21 +94,21 @@ export default {
 <style scoped>
 .c-scroll-container {
 	scroll-margin: 9rem;
-	scroll-padding: 9rem
+	scroll-padding: 9rem;
 }
 
 .zoom-fade-enter,
 .zoom-fade-leave-to {
-	@apply transform scale-90 opacity-0
+	@apply transform scale-90 opacity-0;
 }
 
 .zoom-fade-leave-active {
 	@apply absolute transition duration-500;
-	transition-timing-function: cubic-bezier(0.35, 0.46, 0.17, 1.3)
+	transition-timing-function: cubic-bezier(0.35, 0.46, 0.17, 1.3);
 }
 
 .zoom-fade-enter-active {
 	@apply transition duration-500;
-	transition-timing-function: cubic-bezier(0.35, 0.46, 0.17, 1.3)
+	transition-timing-function: cubic-bezier(0.35, 0.46, 0.17, 1.3);
 }
 </style>
