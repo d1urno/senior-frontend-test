@@ -104,6 +104,7 @@
 import Icon from '@/components/Icon'
 import OfficeFormColor from '@/components/OfficeFormColor'
 import OfficeFormInput from '@/components/OfficeFormInput'
+import { mapActions } from 'vuex'
 
 export default {
 	name: 'OfficeForm',
@@ -133,13 +134,7 @@ export default {
 		}
 	},
 	methods: {
-		addLocation(location) {
-			return this.$store.dispatch('addLocation', location)
-		},
-
-		editLocation(location) {
-			return this.$store.dispatch('editLocation', location)
-		},
+		...mapActions(['addLocation', 'editLocation']),
 
 		getInitialData() {
 			if (this.edit) {
