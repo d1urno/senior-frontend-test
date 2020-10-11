@@ -13,12 +13,12 @@
 						@click="isOpen = !isOpen"
 					>
 						<span class="text-left">
-							<span class="block mb-1 text-2xl font-semibold">{{ location.title }}</span>
+							<span class="block text-2xl font-semibold">{{ location.title }}</span>
 							<span class="">{{ location.address }}</span>
 						</span>
 						<icon
 							type="chevron"
-							class="transition-transform duration-500 transform"
+							class="w-5 h-5 -mr-1 transition-transform duration-500 transform"
 							:class="{ 'rotate-180': isOpen }"
 						/>
 					</button>

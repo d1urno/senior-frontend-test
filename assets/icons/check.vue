@@ -1,10 +1,12 @@
 <template>
-	<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-		<path
-			fill-rule="evenodd"
-			d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0
-			011.414 0z"
-			clip-rule="evenodd"
-		></path>
+	<svg
+		width="100%"
+		height="100%"
+		viewBox="0 0 20 20"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		class="transform scale-125"
+	>
+		<path d="M5 13L9 17L19 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 	</svg>
 </template>

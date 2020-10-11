@@ -5,7 +5,7 @@
 		<span class="relative block">
 			<!-- Error icon -->
 			<transition name="zoom-fade">
-				<icon v-show="error" type="error" class="absolute top-0 right-0 m-2 mt-3 text-red-500" />
+				<icon v-show="error" type="error" class="absolute top-0 right-0 w-4 h-4 m-2 mt-4 text-red-500" />
 			</transition>
 			<!-- End: Error icon -->
 

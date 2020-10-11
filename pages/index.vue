@@ -29,7 +29,7 @@
 						@click="isAddFormOpen = true"
 					>
 						<span>Add New Location</span>
-						<icon type="add" />
+						<icon class="w-4 h-4" type="add" />
 					</button>
 				</transition>
 				<!-- End: Add location button -->

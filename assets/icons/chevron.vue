@@ -1,5 +1,11 @@
 <template>
-	<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+	<svg width="100%" height="100%" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path
+			d="M1 0.999999L9 9L17 1"
+			stroke="white"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			stroke-width="1"
+		></path>
 	</svg>
 </template>

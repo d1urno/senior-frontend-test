@@ -11,8 +11,8 @@
 		>
 			Select Color
 			<icon
-				type="chevron"
-				class="w-4 h-4 mt-1 ml-3 transition-transform duration-500 transform"
+				type="chevron-alt"
+				class="w-4 h-4 ml-4 transition-transform duration-500 transform"
 				:class="{ 'rotate-180': isOpen }"
 			/>
 		</button>
