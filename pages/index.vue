@@ -15,7 +15,7 @@
 		<!-- End: Message modal -->
 
 		<section class="container flex flex-col items-center px-6 pt-24 mx-auto">
-			<h1 class="mb-6 text-6xl font-light tracking-wide text-teal-500">Offices</h1>
+			<h1 class="mb-6 text-6xl font-light text-teal-500">Offices</h1>
 
 			<smooth-reflow class="relative w-full max-w-xs">
 				<!-- Add location button -->
@@ -56,9 +56,9 @@
 		</section>
 
 		<footer class="container px-6 pb-16 mx-auto text-center">
-			<p class="mb-1 text-gray-500">This project is for test purpose only.</p>
+			<p class="text-gray-500 mb-px">This project is for test purpose only.</p>
 			<a
-				class="text-xs tracking-wider text-teal-500 focus:outline-none focus:underline"
+				class="text-xs text-teal-500 tracking-wide focus:outline-none focus:underline"
 				href="https://dogandponystudios.com"
 				rel="nofollow"
 			>

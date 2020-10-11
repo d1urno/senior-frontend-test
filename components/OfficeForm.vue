@@ -36,7 +36,7 @@
 			/>
 		</section>
 
-		<span class="inline-block mb-3 text-xs font-semibold tracking-wide text-teal-500">CONTACT INFORMATION</span>
+		<span class="inline-block mb-3 text-sm text-teal-500">CONTACT INFORMATION</span>
 		<span class="block w-full h-1 mb-4 border-t border-gray-200" />
 
 		<section>

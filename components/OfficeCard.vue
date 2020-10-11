@@ -49,7 +49,7 @@
 								<!-- prettier-ignore -->
 								<button
 									class="flex items-center px-2 py-1 -mx-3 -my-1
-									text-xs tracking-wider text-gray-500 rounded-lg select-none
+									text-xs text-gray-500 rounded-lg select-none
 									hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
 									@click="isEditFormOpen = true"
 								>
@@ -59,7 +59,7 @@
 								<!-- prettier-ignore -->
 								<button
 									class="flex items-center px-2 py-1 -mx-3 -my-1
-									text-xs tracking-wider text-red-500 rounded-lg select-none
+									text-xs text-red-500 rounded-lg select-none
 									hover:bg-red-100 focus:outline-none focus:bg-red-100"
 									@click="deleteLocation(location)"
 								>

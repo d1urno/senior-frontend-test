@@ -30,6 +30,8 @@ export default {
 		'@nuxtjs/tailwindcss'
 	],
 
+	css: ['~/assets/fonts/fonts.css'],
+
 	/*
 	 * Nuxt.js modules
 	 */

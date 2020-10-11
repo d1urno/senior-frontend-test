@@ -253,6 +253,7 @@ module.exports = {
 		},
 		fontFamily: {
 			sans: [
+				'ProximaNova',
 				'system-ui',
 				'-apple-system',
 				'BlinkMacSystemFont',
